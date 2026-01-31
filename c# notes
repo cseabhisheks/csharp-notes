@@ -1,0 +1,161 @@
+
+// type of comment 
+// single line comment
+/*
+multi line comment
+*/
+
+using System;
+using System.Reflection.Metadata;// we can use Console Directly no need to write System.Console
+//every function and class must be in PascalCase
+
+//athough scope is local we can use same varaible again like
+//if i is declared in if block then in any line of outside if block we cant access it or declare it
+
+class ConsoleApp
+{
+
+
+    static int Add(int a, int b)//user defined function
+    {
+        String c = $"we are adding {a} ,{b}"; //string template it dont exist in java
+        Console.WriteLine(c);
+        return a + b;
+    }
+
+    enum Day { monday, tuesday, wednesday, friday, saturday, sunday }; //enum
+
+  struct Student // class class deal with reference and struct deals with value
+    {
+        // private int _id // optional: use _ with private _rollNo but both are correct
+       public int rollNo; 
+       public int number;
+        public Student(int roll, int number)
+        {
+            rollNo = roll;
+            this.number = number;
+
+        }
+
+        public void show()
+        {
+            Console.WriteLine($"my roll no is{rollNo} and number is {number}");
+        }
+    }
+    public static void Main(string[] args)
+    {
+        //struct or class
+        Student s = new Student(234235423, 35434);
+        s.show();
+        Student s2 = new Student { rollNo=353453453,number=3242423}; // cannot use the parameterless object initializer in class if constructor is defined
+        s2.show();
+        //enum
+
+        Console.WriteLine((int)Day.tuesday);//1
+
+        Day d = Day.tuesday;
+        Console.WriteLine(d);//tuesday
+     
+       
+
+
+        //array
+        int[] marks = new int[5]; // only this is allowed but int x[] is not allowed but both format is allowed in java
+        String[] studentnames = {"aman", "amit", "rakesh" };
+        studentnames[0] = "naman";
+
+        int[,,] arr = {{{1, 2, 3},{4, 5, 6}},{{7, 8, 9},{10, 11, 12}}};
+        int layers = arr.GetLength(0);//in java arr.length; if 2d array this is row
+        int rows = arr.GetLength(1);//in java arr[0].length; if 2d array this is column
+        int cols = arr.GetLength(2);// in java arr[0][0].length;
+        for (int p = 0; p < layers; p++)
+        {
+            for (int q = 0; q < rows; q++)
+            {
+                for (int r = 0; r< cols; r++)
+                {
+                    Console.Write(arr[p,q,r] + " ");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine();
+        }
+
+
+        Console.WriteLine(Add(2, 3));
+        //datatype
+        int a = 10;
+        float f= 2.3f;
+        double b = 5.5;
+        char c = 'A';// 65 A=65 and a=97
+        string name = "Abhishek"; //String in java but string in c# look capital s in java and small s in c#
+        bool isActive = true;
+        var x = 10;      // it consider it as int x=10 on compile time so x=8 is possible later but x="hi" not possible but in js allowed
+        var y = "Hello"; // it consider to string y="hello" on compile time so y="nmste" is possible later but y=2 not possible but in js allowed
+        //output
+        Console.Write(f+""+a + b + c + name + isActive + x + y);//2.3105.5AAbhishekTrue10Hello // print on same line
+        Console.WriteLine("hi buddy");// or  System.Console.WriteLine("hi buddy"); WriteLine go to next Line after printing
+        //input
+        string username = Console.ReadLine(); //string
+        int age = int.Parse(Console.ReadLine());//int
+        /*  
+         char ch = char.Parse(Console.ReadLine());//char
+         double salary = double.Parse(Console.ReadLine());//double
+         isActive = bool.Parse(Console.ReadLine()); //bool
+         float num = float.Parse(Console.ReadLine());//float
+                            var 
+          var name = Console.ReadLine(); // compiler knows it's string
+          var age = int.Parse(Console.ReadLine()); // compiler knows it's int
+          var salary = double.Parse(Console.ReadLine()); // compiler knows it's double
+          var isActive = bool.Parse(Console.ReadLine()); // compiler knows it's bool
+          var ch = char.Parse(Console.ReadLine()); // compiler knows it's char 
+        */
+
+        Console.WriteLine(username + age);
+
+        //condition
+        if (age > 18)
+        {
+            Console.WriteLine("eligible for vote");
+        }
+        else
+        {
+            Console.WriteLine("not eligible for vote");
+        }
+        int day = 2;
+        //switch case
+        switch (day)
+        {
+            case 1:
+                Console.WriteLine("Monday");
+                break;
+            case 2:
+                Console.WriteLine("Tuesday");
+                break;
+            default:
+                Console.WriteLine("Invalid");
+                break;
+        }
+        //for loop
+        for (int i = 0; i < 10; i++)
+        {
+            Console.WriteLine(i);
+        }
+        //while loop
+        int j = 1; //look we can use i here athough it is outside for loop
+                   //that why we use j instead of i but also it doesnt mean we can access i outside for loop becuase on compile time naming is checked after run time when for loop end then its scope destroyed but at compile time its scope is full 
+        while (j < 10)
+        {
+            Console.WriteLine(j);
+            j++;
+        }
+        //do while
+        int bd = 10;
+        do
+        {
+            Console.WriteLine('.');
+            bd--;
+        } while (bd != 0);
+
+    }
+}

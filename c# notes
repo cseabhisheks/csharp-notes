@@ -90,10 +90,11 @@ class ConsoleApp
         char c = 'A';// 65 A=65 and a=97
         string name = "Abhishek"; //String in java but string in c# look capital s in java and small s in c#
         bool isActive = true;
+        const int url = 4556;
         var x = 10;      // it consider it as int x=10 on compile time so x=8 is possible later but x="hi" not possible but in js allowed
         var y = "Hello"; // it consider to string y="hello" on compile time so y="nmste" is possible later but y=2 not possible but in js allowed
         //output
-        Console.Write(f+""+a + b + c + name + isActive + x + y);//2.3105.5AAbhishekTrue10Hello // print on same line
+        Console.Write(url+" "+f+""+a + b + c + name + isActive + x + y);//4556 2.3105.5AAbhishekTrue10Hello // print on same line
         Console.WriteLine("hi buddy");// or  System.Console.WriteLine("hi buddy"); WriteLine go to next Line after printing
         //input
         string username = Console.ReadLine(); //string

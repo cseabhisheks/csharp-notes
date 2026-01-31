@@ -25,11 +25,11 @@ class ConsoleApp
 
     enum Day { monday, tuesday, wednesday, friday, saturday, sunday }; //enum smae as java
 
-  struct Student // class class deal with reference and struct deals with value
+  struct Student // class class deal with reference and support oops and struct deals with value and dont support polymorphism and inheritance
     {
         // private int _id // optional: use _ with private _rollNo but both are correct
-       public int rollNo; 
-       public int number;
+        public int rollNo { get; set; } //no ; needed it is getter and setter defaults means s.rollNo will work as getter and output while s.rollNo=2345 will be setter and update the value
+        public int number;
         public Student(int roll, int number) // in c we dont have constuctor in struct 
         {
             rollNo = roll;
@@ -44,6 +44,20 @@ class ConsoleApp
     }
     public static void Main(string[] args)
     {
+        //pointer do below step first for using pointer  which work under unsafe
+        //Right-click your project (ConsoleApp1) → Properties
+        //Go to the Build tab
+        //Check the box Allow unsafe code
+        unsafe
+        {
+            int x2 = 10;
+            int* p = &x2;   // pointer to int
+            int** pp = &p; // pointer to pointer
+
+            Console.WriteLine(**pp); // 10
+            **pp = 20;
+            Console.WriteLine(x2);    // 20
+        }
         //struct or class
         Student s = new Student(234235423, 35434);
         s.show();

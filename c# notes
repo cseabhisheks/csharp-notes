@@ -23,14 +23,14 @@ class ConsoleApp
         return a + b;
     }
 
-    enum Day { monday, tuesday, wednesday, friday, saturday, sunday }; //enum
+    enum Day { monday, tuesday, wednesday, friday, saturday, sunday }; //enum smae as java
 
   struct Student // class class deal with reference and struct deals with value
     {
         // private int _id // optional: use _ with private _rollNo but both are correct
        public int rollNo; 
        public int number;
-        public Student(int roll, int number)
+        public Student(int roll, int number) // in c we dont have constuctor in struct 
         {
             rollNo = roll;
             this.number = number;
